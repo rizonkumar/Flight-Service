@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const logger = require("../config/logger-config");
 const { Logger } = require("../config/logger-config");
 
