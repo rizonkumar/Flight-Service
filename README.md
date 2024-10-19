@@ -3,6 +3,18 @@
 
 This is a Flight Booking Application built with Node.js, Express, and Sequelize ORM.
 
+## Table of Contents
+
+- [Setup](#setup)
+- [Database Configuration](#database-configuration)
+- [API Endpoints](#api-endpoints)
+  - [Airplane Routes](#airplane-routes)
+  - [City Routes](#city-routes)
+  - [Info Route](#info-route)
+- [Models and Migrations](#models-and-migrations)
+- [Error Handling](#error-handling)
+- [Logging](#logging)
+
 ## Setup
 
 1. Clone the repository
@@ -70,7 +82,6 @@ The project uses MySQL as the database. Configure your database settings in `con
         "createdAt": "2024-10-19T12:00:00.000Z",
         "updatedAt": "2024-10-19T12:00:00.000Z"
       }
-      // ... other airplanes
     ],
     "error": {}
   }
@@ -95,7 +106,7 @@ The project uses MySQL as the database. Configure your database settings in `con
   }
   ```
 
-### Update Airplane
+#### Update Airplane
 
 - **PATCH** `/api/v1/airplanes/:id`
 - **Request Body:**
@@ -128,6 +139,107 @@ The project uses MySQL as the database. Configure your database settings in `con
   {
     "success": true,
     "message": "Airplane deleted successfully",
+    "data": 1,
+    "error": {}
+  }
+  ```
+
+### City Routes
+
+#### Create City
+
+- **POST** `/api/v1/cities`
+- **Request Body:**
+  ```json
+  {
+    "name": "New York"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "City created successfully",
+    "data": {
+      "id": 1,
+      "name": "New York",
+      "createdAt": "2024-10-19T12:00:00.000Z",
+      "updatedAt": "2024-10-19T12:00:00.000Z"
+    },
+    "error": {}
+  }
+  ```
+
+#### Get All Cities
+
+- **GET** `/api/v1/cities`
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "Cities fetched successfully",
+    "data": [
+      {
+        "id": 1,
+        "name": "New York",
+        "createdAt": "2024-10-19T12:00:00.000Z",
+        "updatedAt": "2024-10-19T12:00:00.000Z"
+      }
+    ],
+    "error": {}
+  }
+  ```
+
+#### Get City by ID
+
+- **GET** `/api/v1/cities/:id`
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "City fetched successfully",
+    "data": {
+      "id": 1,
+      "name": "New York",
+      "createdAt": "2024-10-19T12:00:00.000Z",
+      "updatedAt": "2024-10-19T12:00:00.000Z"
+    },
+    "error": {}
+  }
+  ```
+
+#### Update City
+
+- **PATCH** `/api/v1/cities/:id`
+- **Request Body:**
+  ```json
+  {
+    "name": "Updated City Name"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "City updated successfully",
+    "data": {
+      "id": 1,
+      "name": "Updated City Name",
+      "createdAt": "2024-10-19T12:00:00.000Z",
+      "updatedAt": "2024-10-19T12:30:00.000Z"
+    },
+    "error": {}
+  }
+  ```
+
+#### Delete City
+
+- **DELETE** `/api/v1/cities/:id`
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "City deleted successfully",
     "data": 1,
     "error": {}
   }
