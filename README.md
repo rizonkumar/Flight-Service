@@ -1,17 +1,7 @@
 ```markdown
 # Flight Booking App
 
-This is a Flight Booking Application built with Node.js, Express, and Sequelize ORM. It provides APIs for managing airplanes and cities as part of a larger flight booking system.
-
-## Table of Contents
-
-1. [Setup](#setup)
-2. [Database Configuration](#database-configuration)
-3. [API Endpoints](#api-endpoints)
-4. [Models and Migrations](#models-and-migrations)
-5. [Project Structure](#project-structure)
-6. [Error Handling](#error-handling)
-7. [Logging](#logging)
+This is a Flight Booking Application built with Node.js, Express, and Sequelize ORM.
 
 ## Setup
 
@@ -26,7 +16,7 @@ npm install
 4. Start the server:
 ```
 
-npm start
+npm run dev
 
 ````
 
@@ -184,43 +174,6 @@ To run migrations:
 npx sequelize-cli db:migrate
 ```
 
-## Project Structure
-
-```
-.
-├── config/
-│   ├── config.json
-│   ├── logger-config.js
-│   └── server-config.js
-├── controllers/
-│   ├── airplane-controller.js
-│   └── info-controller.js
-├── middlewares/
-│   └── airplane-middleware.js
-├── migrations/
-├── models/
-│   ├── airplane.js
-│   └── city.js
-├── repositories/
-│   ├── airplane-repository.js
-│   └── crud-repository.js
-├── routes/
-│   └── v1/
-│       ├── airplane-routes.js
-│       └── index.js
-├── services/
-│   └── airplane-service.js
-├── utils/
-│   ├── constants.js
-│   └── errors/
-│       └── app-error.js
-├── .env
-├── .gitignore
-├── index.js
-├── package.json
-└── README.md
-```
-
 ## Error Handling
 
 The application uses custom error handling with `AppError` class and standardized error responses. Errors are logged and appropriate HTTP status codes are sent in the responses.
@@ -228,12 +181,3 @@ The application uses custom error handling with `AppError` class and standardize
 ## Logging
 
 Logging is configured using Winston. Logs are written to both the console and a `combined.log` file.
-
----
-
-For more detailed information about each component, please refer to the respective files in the project structure.
-
-```
-
-
-```
