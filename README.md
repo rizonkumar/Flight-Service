@@ -31,12 +31,12 @@ The project uses MySQL as the database. Configure your database settings in `con
 #### Create Airplane
 - **POST** `/api/v1/airplanes`
 - **Request Body:**
-  ```json
-  {
-    "modelNumber": "Boeing 737",
-    "capacity": 180
-  }
-  ```
+```json
+{
+ "modelNumber": "Boeing 737",
+ "capacity": 180
+}
+````
 
 - **Response:**
   ```json
@@ -181,4 +181,3 @@ The application uses custom error handling with `AppError` class and standardize
 ## Logging
 
 Logging is configured using Winston. Logs are written to both the console and a `combined.log` file.
-````
