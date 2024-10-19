@@ -1,6 +1,8 @@
+const { MESSAGES } = require("../constants");
+
 const error = {
   success: false,
-  message: "Something went wrong.",
+  message: MESSAGES.ERROR.DEFAULT,
   data: {},
   error: {},
 };

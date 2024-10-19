@@ -1,6 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const { AirplaneRepository } = require("../repositories");
 const AppError = require("../utils/errors/app-error");
+const { MESSAGES } = require("../utils/constants");
 
 const airplaneRepository = new AirplaneRepository();
 
@@ -14,7 +15,7 @@ async function createAirplane(data) {
       throw new AppError(explanation, StatusCodes.BAD_REQUEST);
     }
     throw new AppError(
-      "Cannot create a new Airplane object",
+      MESSAGES.ERROR.AIRPLANE_CREATE_FAILED,
       StatusCodes.INTERNAL_SERVER_ERROR
     );
   }

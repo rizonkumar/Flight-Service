@@ -1,4 +1,5 @@
 const logger = require("../config/logger-config");
+const { MESSAGES } = require("../utils/constants");
 
 class CrudRepository {
   constructor(model) {
@@ -18,7 +19,7 @@ class CrudRepository {
       });
       return response;
     } catch (error) {
-      logger.error("Something went wrong in the CRUD Repo: create");
+      logger.error(MESSAGES.ERROR.DATABASE_ERROR);
       throw error;
     }
   }
@@ -27,7 +28,7 @@ class CrudRepository {
       const response = await this.model.findByPk(data);
       return response;
     } catch (error) {
-      logger.error("Something went wrong in the CRUD Repo: create");
+      logger.error(MESSAGES.ERROR.DATABASE_ERROR);
       throw error;
     }
   }
@@ -36,7 +37,7 @@ class CrudRepository {
       const response = await this.model.findAll();
       return response;
     } catch (error) {
-      logger.error("Something went wrong in the CRUD Repo: create");
+      logger.error(MESSAGES.ERROR.DATABASE_ERROR);
       throw error;
     }
   }
@@ -50,7 +51,7 @@ class CrudRepository {
       });
       return response;
     } catch (error) {
-      logger.error("Something went wrong in the CRUD Repo: create");
+      logger.error(MESSAGES.ERROR.DATABASE_ERROR);
       throw error;
     }
   }
