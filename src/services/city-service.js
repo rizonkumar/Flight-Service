@@ -1,7 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const { CityRepository } = require("../repositories");
 const AppError = require("../utils/errors/app-error");
-const { MESSAGES, CONFIG } = require("../utils/constants");
+const { MESSAGES } = require("../utils/constants");
 
 const cityRepository = new CityRepository();
 
