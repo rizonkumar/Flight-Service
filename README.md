@@ -95,7 +95,7 @@ The project uses MySQL as the database. Configure your database settings in `con
   }
   ```
 
-#### Update Airplane
+### Update Airplane
 
 - **PATCH** `/api/v1/airplanes/:id`
 - **Request Body:**
