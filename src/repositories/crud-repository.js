@@ -5,7 +5,6 @@ const { StatusCodes } = require("http-status-codes");
 class CrudRepository {
   constructor(model) {
     this.model = model;
-    console.log("Model", model);
   }
 
   async create(data) {
@@ -14,7 +13,6 @@ class CrudRepository {
   }
 
   async destroy(data) {
-    console.log("data", data);
     const response = await this.model.destroy({
       where: {
         id: data,
