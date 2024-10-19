@@ -39,4 +39,39 @@ async function getCities() {
   }
 }
 
-module.exports = { createCity, getCities };
+async function updateCity(id, data) {
+  try {
+    const updatedCity = await cityRepository.update(id, data);
+    return updatedCity;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw new AppError(MESSAGES.ERROR.CITY_NOT_FOUND, StatusCodes.NOT_FOUND);
+    }
+    if (error.name === "SequelizeUniqueConstraintError") {
+      throw new AppError(
+        MESSAGES.ERROR.CITY_NAME_ALREADY_EXISTS,
+        StatusCodes.CONFLICT
+      );
+    }
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_UPDATE_CITY,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+async function deleteCity(id) {
+  try {
+    const deletedCity = await cityRepository.destroy(id);
+    return deletedCity;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw new AppError(MESSAGES.ERROR.CITY_NOT_FOUND, StatusCodes.NOT_FOUND);
+    }
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_DELETE_CITY,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+module.exports = { createCity, getCities, updateCity, deleteCity };

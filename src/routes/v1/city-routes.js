@@ -13,12 +13,12 @@ router.post(
 
 router.get("/", CityController.getCities);
 
-// router.patch(
-//   "/:id",
-//   CityMiddlewares.validateUpdateRequest,
-//   CityController.updateCity
-// );
+router.patch(
+  "/:id",
+  CityMiddlewares.validateUpdateRequest,
+  CityController.updateCity
+);
 
-// router.delete("/:id", CityController.deleteCity);
+router.delete("/:id", CityController.deleteCity);
 
 module.exports = router;
