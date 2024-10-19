@@ -27,4 +27,18 @@ async function createAirplane(req, res) {
   }
 }
 
-module.exports = { createAirplane };
+async function getAirplanes(req, res) {
+  try {
+    const airplanes = await AirplaneService.getAirplanes();
+    SuccessResponse.data = airplanes;
+    SuccessResponse.message = MESSAGES.SUCCESS.AIRPLANE_FETCHED;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.UNABLE_TO_FETCH_ALL_AIRPLANES;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+module.exports = { createAirplane, getAirplanes };

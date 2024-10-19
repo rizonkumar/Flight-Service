@@ -12,6 +12,8 @@ const MESSAGES = {
     RESOURCE_NOT_FOUND: "Requested resource not found",
     DATABASE_ERROR: "Database operation failed",
     VALIDATION_ERROR: "Validation error occurred",
+    UNABLE_TO_FETCH_ALL_AIRPLANES: "Cannot fetch data of all the airplanes",
+    AIRPLANE_FETCHED: "Airplane fetched successfully",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
