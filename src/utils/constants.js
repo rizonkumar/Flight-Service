@@ -6,6 +6,7 @@ const MESSAGES = {
     AIRPLANE_FETCHED: "Airplane fetched successfully",
     DELETE_AIRPLANE_SUCCESS: "Airplane deleted successfully",
     UPDATE_AIRPLANE_SUCCESS: "Airplane updated successfully",
+    CITY_CREATED: "City created successfully",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -24,6 +25,8 @@ const MESSAGES = {
     CAPACITY_EXCEEDED: "Airplane capacity exceeds maximum limit",
     UNABLE_TO_UPDATE_AIRPLANE: "Unable to update airplane",
     NOT_FOUND: "Requested resource not found",
+    CANNOT_CREATE_CITY: "Cannot create city",
+    CITY_NAME_REQUIRED: "City name is required",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
