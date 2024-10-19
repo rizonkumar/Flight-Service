@@ -1,7 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const { AirplaneRepository } = require("../repositories");
 const AppError = require("../utils/errors/app-error");
-const { MESSAGES } = require("../utils/constants");
+const { MESSAGES, CONFIG } = require("../utils/constants");
 
 const airplaneRepository = new AirplaneRepository();
 
@@ -69,22 +69,32 @@ async function deleteAirplane(id) {
   }
 }
 
-async function updateAirplane(id) {
-  console.log("ID", id);
+async function updateAirplane(data, id) {
   try {
-    const airplane = await airplaneRepository.update(id, data);
-    console.log("Airplane", airplane);
-    return airplane;
-  } catch (error) {
-    console.log("Error", error);
-    if (error.statusCode === StatusCodes.NOT_FOUND) {
-      throw new AppError(
-        MESSAGES.ERROR.AIRPLANE_NOT_FOUND,
-        StatusCodes.NOT_FOUND
-      );
+    // Validate capacity
+    if (data.capacity !== undefined) {
+      const capacity = parseInt(data.capacity);
+      if (isNaN(capacity) || capacity < 0) {
+        throw new AppError(
+          MESSAGES.ERROR.INVALID_CAPACITY,
+          StatusCodes.BAD_REQUEST
+        );
+      }
+      if (capacity > CONFIG.MAX_AIRPLANE_CAPACITY) {
+        throw new AppError(
+          MESSAGES.ERROR.CAPACITY_EXCEEDED,
+          StatusCodes.BAD_REQUEST
+        );
+      }
     }
+
+    // Update the airplane
+    const updatedAirplane = await airplaneRepository.update(id, data);
+    return updatedAirplane;
+  } catch (error) {
+    if (error instanceof AppError) throw error;
     throw new AppError(
-      MESSAGES.ERROR.UNABLE_TO_FETCH_AIRPLANE,
+      MESSAGES.ERROR.UNABLE_TO_UPDATE_AIRPLANE,
       StatusCodes.INTERNAL_SERVER_ERROR
     );
   }

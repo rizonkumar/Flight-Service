@@ -23,6 +23,7 @@ const MESSAGES = {
     INVALID_CAPACITY: "Invalid airplane capacity",
     CAPACITY_EXCEEDED: "Airplane capacity exceeds maximum limit",
     UNABLE_TO_UPDATE_AIRPLANE: "Unable to update airplane",
+    NOT_FOUND: "Requested resource not found",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
