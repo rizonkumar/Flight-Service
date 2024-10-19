@@ -20,12 +20,20 @@ const MESSAGES = {
     AIRPLANE_NOT_FOUND: "Airplane not found",
     DELETE_AIRPLANE_FAILED: "Failed to delete airplane",
     UPDATE_AIRPLANE_FAILED: "Failed to update airplane",
+    INVALID_CAPACITY: "Invalid airplane capacity",
+    CAPACITY_EXCEEDED: "Airplane capacity exceeds maximum limit",
+    UNABLE_TO_UPDATE_AIRPLANE: "Unable to update airplane",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
   },
 };
 
+const CONFIG = {
+  MAX_AIRPLANE_CAPACITY: 1000,
+};
+
 module.exports = {
   MESSAGES,
+  CONFIG,
 };
