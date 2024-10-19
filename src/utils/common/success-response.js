@@ -1,6 +1,8 @@
+const { MESSAGES } = require("../constants");
+
 const success = {
   success: true,
-  message: "Successfully completed the request",
+  message: MESSAGES.SUCCESS.DEFAULT,
   data: {},
   error: {},
 };
