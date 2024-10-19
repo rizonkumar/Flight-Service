@@ -1,5 +1,6 @@
 const logger = require("../config/logger-config");
 const { MESSAGES } = require("../utils/constants");
+const { StatusCodes } = require("http-status-codes");
 
 class CrudRepository {
   constructor(model) {
@@ -22,6 +23,9 @@ class CrudRepository {
 
   async get(data) {
     const response = await this.model.findByPk(data);
+    if (!response) {
+      throw new Error(MESSAGES.ERROR.AIRPLANE_NOT_FOUND, StatusCodes.NOT_FOUND);
+    }
     return response;
   }
 

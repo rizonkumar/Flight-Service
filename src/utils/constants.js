@@ -3,6 +3,7 @@ const MESSAGES = {
     DEFAULT: "Operation completed successfully",
     AIRPLANE_CREATED: "Airplane created successfully",
     API_LIVE: "API is live and operational",
+    AIRPLANE_FETCHED: "Airplane fetched successfully",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -13,7 +14,8 @@ const MESSAGES = {
     DATABASE_ERROR: "Database operation failed",
     VALIDATION_ERROR: "Validation error occurred",
     UNABLE_TO_FETCH_ALL_AIRPLANES: "Cannot fetch data of all the airplanes",
-    AIRPLANE_FETCHED: "Airplane fetched successfully",
+    UNABLE_TO_FETCH_AIRPLANE: "Cannot fetch data of the airplane",
+    AIRPLANE_NOT_FOUND: "Airplane not found",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
