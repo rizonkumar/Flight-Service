@@ -5,6 +5,7 @@ const MESSAGES = {
     API_LIVE: "API is live and operational",
     AIRPLANE_FETCHED: "Airplane fetched successfully",
     DELETE_AIRPLANE_SUCCESS: "Airplane deleted successfully",
+    UPDATE_AIRPLANE_SUCCESS: "Airplane updated successfully",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -18,12 +19,22 @@ const MESSAGES = {
     UNABLE_TO_FETCH_AIRPLANE: "Cannot fetch data of the airplane",
     AIRPLANE_NOT_FOUND: "Airplane not found",
     DELETE_AIRPLANE_FAILED: "Failed to delete airplane",
+    UPDATE_AIRPLANE_FAILED: "Failed to update airplane",
+    INVALID_CAPACITY: "Invalid airplane capacity",
+    CAPACITY_EXCEEDED: "Airplane capacity exceeds maximum limit",
+    UNABLE_TO_UPDATE_AIRPLANE: "Unable to update airplane",
+    NOT_FOUND: "Requested resource not found",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
   },
 };
 
+const CONFIG = {
+  MAX_AIRPLANE_CAPACITY: 1000,
+};
+
 module.exports = {
   MESSAGES,
+  CONFIG,
 };
