@@ -5,6 +5,7 @@ const { StatusCodes } = require("http-status-codes");
 class CrudRepository {
   constructor(model) {
     this.model = model;
+    console.log("Model", model);
   }
 
   async create(data) {
@@ -12,12 +13,17 @@ class CrudRepository {
     return response;
   }
 
-  async destory(data) {
-    const response = await this.model.destory({
+  async destroy(data) {
+    console.log("data", data);
+    const response = await this.model.destroy({
       where: {
         id: data,
       },
     });
+    console.log("response", response);
+    if (!response) {
+      throw new Error(MESSAGES.ERROR.AIRPLANE_NOT_FOUND, StatusCodes.NOT_FOUND);
+    }
     return response;
   }
 

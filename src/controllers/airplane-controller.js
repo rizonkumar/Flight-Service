@@ -51,4 +51,20 @@ async function getAirplane(req, res) {
       .json(ErrorResponse);
   }
 }
-module.exports = { createAirplane, getAirplanes, getAirplane };
+
+async function deleteAirplane(req, res) {
+  try {
+    const airplane = await AirplaneService.deleteAirplane(req.params.id);
+    console.log("Controller Airplane", airplane);
+    SuccessResponse.data = airplane;
+    SuccessResponse.message = MESSAGES.SUCCESS.DELETE_AIRPLANE_SUCCESS;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.DELETE_AIRPLANE_FAILED;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+module.exports = { createAirplane, getAirplanes, getAirplane, deleteAirplane };

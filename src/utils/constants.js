@@ -4,6 +4,7 @@ const MESSAGES = {
     AIRPLANE_CREATED: "Airplane created successfully",
     API_LIVE: "API is live and operational",
     AIRPLANE_FETCHED: "Airplane fetched successfully",
+    DELETE_AIRPLANE_SUCCESS: "Airplane deleted successfully",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -16,6 +17,7 @@ const MESSAGES = {
     UNABLE_TO_FETCH_ALL_AIRPLANES: "Cannot fetch data of all the airplanes",
     UNABLE_TO_FETCH_AIRPLANE: "Cannot fetch data of the airplane",
     AIRPLANE_NOT_FOUND: "Airplane not found",
+    DELETE_AIRPLANE_FAILED: "Failed to delete airplane",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
