@@ -55,7 +55,6 @@ async function getAirplane(req, res) {
 async function deleteAirplane(req, res) {
   try {
     const airplane = await AirplaneService.deleteAirplane(req.params.id);
-    console.log("Controller Airplane", airplane);
     SuccessResponse.data = airplane;
     SuccessResponse.message = MESSAGES.SUCCESS.DELETE_AIRPLANE_SUCCESS;
     return res.status(StatusCodes.OK).json(SuccessResponse);
@@ -67,4 +66,28 @@ async function deleteAirplane(req, res) {
       .json(ErrorResponse);
   }
 }
-module.exports = { createAirplane, getAirplanes, getAirplane, deleteAirplane };
+
+async function updateAirplane(req, res) {
+  try {
+    const airplane = await AirplaneService.updateAirplane(
+      { capacity: req.body.capacity },
+      req.params.id
+    );
+    SuccessResponse.data = airplane;
+    SuccessResponse.message = MESSAGES.SUCCESS.UPDATE_AIRPLANE_SUCCESS;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.UPDATE_AIRPLANE_FAILED;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+module.exports = {
+  createAirplane,
+  getAirplanes,
+  getAirplane,
+  deleteAirplane,
+  updateAirplane,
+};

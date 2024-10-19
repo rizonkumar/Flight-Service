@@ -52,9 +52,27 @@ async function getAirplane(id) {
 }
 
 async function deleteAirplane(id) {
-  console.log("ID", id);
   try {
     const airplane = await airplaneRepository.destroy(id);
+    return airplane;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw new AppError(
+        MESSAGES.ERROR.AIRPLANE_NOT_FOUND,
+        StatusCodes.NOT_FOUND
+      );
+    }
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_FETCH_AIRPLANE,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+async function updateAirplane(id) {
+  console.log("ID", id);
+  try {
+    const airplane = await airplaneRepository.update(id, data);
     console.log("Airplane", airplane);
     return airplane;
   } catch (error) {
@@ -77,4 +95,5 @@ module.exports = {
   getAirplanes,
   getAirplane,
   deleteAirplane,
+  updateAirplane,
 };
