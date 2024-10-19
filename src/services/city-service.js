@@ -10,7 +10,7 @@ async function createCity(data) {
     const response = await cityRepository.create(data);
     return response;
   } catch (error) {
-    console.log("error", error);
+    console.error("error", error);
     if (
       error.name === "SequelizeValidationError" ||
       error.name === "SequelizeUniqueConstraintError"
