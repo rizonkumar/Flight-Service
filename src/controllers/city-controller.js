@@ -21,4 +21,19 @@ async function createCity(req, res) {
   }
 }
 
-module.exports = { createCity };
+async function getCities(req, res) {
+  try {
+    const cities = await CityService.getCities();
+    SuccessResponse.data = cities;
+    SuccessResponse.message = MESSAGES.SUCCESS.CITIES_FETCHED;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.UNABLE_TO_FETCH_ALL_CITIES;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+
+module.exports = { createCity, getCities };

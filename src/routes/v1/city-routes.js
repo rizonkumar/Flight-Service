@@ -1,14 +1,24 @@
 const express = require("express");
 
 const { CityController } = require("../../controllers");
-const { CityMiddlwares } = require("../../middlewares");
+const { CityMiddlewares } = require("../../middlewares");
 
 const router = express.Router();
 
 router.post(
   "/",
-  CityMiddlwares.validateCreateRequest,
+  CityMiddlewares.validateCreateRequest,
   CityController.createCity
 );
+
+router.get("/", CityController.getCities);
+
+// router.patch(
+//   "/:id",
+//   CityMiddlewares.validateUpdateRequest,
+//   CityController.updateCity
+// );
+
+// router.delete("/:id", CityController.deleteCity);
 
 module.exports = router;

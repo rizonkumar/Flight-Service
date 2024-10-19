@@ -37,6 +37,7 @@ class CrudRepository {
       const response = await this.model.findAll();
       return response;
     } catch (error) {
+      logger.error(`Error in getAll method: ${error.message}`);
       logger.error(MESSAGES.ERROR.DATABASE_ERROR);
       throw error;
     }

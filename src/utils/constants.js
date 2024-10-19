@@ -7,6 +7,9 @@ const MESSAGES = {
     DELETE_AIRPLANE_SUCCESS: "Airplane deleted successfully",
     UPDATE_AIRPLANE_SUCCESS: "Airplane updated successfully",
     CITY_CREATED: "City created successfully",
+    CITIES_FETCHED: "Cities fetched successfully",
+    UPDATE_CITY_SUCCESS: "City updated successfully",
+    DELETE_CITY_SUCCESS: "City deleted successfully",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -27,6 +30,13 @@ const MESSAGES = {
     NOT_FOUND: "Requested resource not found",
     CANNOT_CREATE_CITY: "Cannot create city",
     CITY_NAME_REQUIRED: "City name is required",
+    UNABLE_TO_FETCH_ALL_CITIES: "Cannot fetch data of all the cities",
+    CITY_NOT_FOUND: "City not found",
+    UNABLE_TO_UPDATE_CITY: "Unable to update city",
+    UNABLE_TO_DELETE_CITY: "Unable to delete city",
+    UPDATE_CITY_FAILED: "Failed to update city",
+    DELETE_CITY_FAILED: "Failed to delete city",
+    CITY_NAME_ALREADY_EXISTS: "City name already exists",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",

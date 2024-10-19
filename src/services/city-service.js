@@ -25,4 +25,18 @@ async function createCity(data) {
   }
 }
 
-module.exports = { createCity };
+async function getCities() {
+  try {
+    const response = await cityRepository.getAll();
+    return response;
+  } catch (error) {
+    logger.error(`Error in getCities service: ${error.message}`);
+    logger.error(error.stack);
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_FETCH_ALL_CITIES,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+module.exports = { createCity, getCities };
