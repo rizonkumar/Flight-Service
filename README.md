@@ -1,3 +1,5 @@
+Sure! Here’s the updated README with the command included in the "Models and Migrations" section:
+
 ````markdown
 # Flight Booking App
 
@@ -284,6 +286,12 @@ To run migrations:
 
 ```bash
 npx sequelize-cli db:migrate
+```
+
+To generate a migration for updating the city-airport association:
+
+```bash
+npx sequelize migration:generate --name update-city-airport-association
 ```
 
 ## Error Handling
