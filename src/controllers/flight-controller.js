@@ -7,10 +7,10 @@ const { SuccessResponse, ErrorResponse } = require("../utils/common");
 async function createFlight(req, res) {
   try {
     const flight = await FlightService.createFlight({
-      flightNumber: req.body.name,
-      airplaneId: req.body.code,
-      departureAirportId: req.body.address,
-      arrivalAirportId: req.body.cityId,
+      flightNumber: req.body.flightNumber,
+      airplaneId: req.body.airplaneId,
+      departureAirportId: req.body.departureAirportId,
+      arrivalAirportId: req.body.arrivalAirportId,
       arrivalTime: req.body.arrivalTime,
       departureTime: req.body.departureTime,
       price: req.body.price,
