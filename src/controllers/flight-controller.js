@@ -13,6 +13,9 @@ async function createFlight(req, res) {
       arrivalAirportId: req.body.cityId,
       arrivalTime: req.body.arrivalTime,
       departureTime: req.body.departureTime,
+      price: req.body.price,
+      boardingGate: req.body.boardingGate,
+      totalSeats: req.body.totalSeats,
     });
     SuccessResponse.data = flight;
     SuccessResponse.message = MESSAGES.SUCCESS.FLIGHT_CREATED;
