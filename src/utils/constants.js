@@ -58,6 +58,7 @@ const MESSAGES = {
     DEPARTURE_TIME_REQUIRED: "Departure time is required",
     PRICE_REQUIRED: "Price is required",
     TOTAL_SEATS_REQUIRED: "Total seats is required",
+    INVALID_FLIGHT_TIME: "Departure time must be earlier than arrival time",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
