@@ -14,6 +14,7 @@ const MESSAGES = {
     AIRPORT_FETCHED: "Airports fetched successfully",
     DELETE_AIRPORT_SUCCESS: "Airport deleted successfully",
     FLIGHT_CREATED: "Successfully created flight",
+    FLIGHTS_FETCHED: "Successfully fetched flights data",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -49,6 +50,7 @@ const MESSAGES = {
     NAME_REQUIRED: "Name is required",
     CITYID_REQUIRED: "City ID is required",
     AIRPORT_CODE_REQUIRED: "Airport code is required",
+    UNABLE_TO_FETCH_ALL_FLIGHTS: "Unable to fetch flights data",
     CANNOT_CREATE_FLIGHT: "Cannot create flight",
     FLIGHT_NUMBER_REQUIRED: "Flight number is required",
     AIRPLANE_ID_REQUIRED: "Airplane ID is required",
