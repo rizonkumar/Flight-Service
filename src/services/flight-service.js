@@ -1,4 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
+const { Op } = require("sequelize");
 const { FlightRepository } = require("../repositories");
 const AppError = require("../utils/errors/app-error");
 const { MESSAGES } = require("../utils/constants");
@@ -34,4 +35,50 @@ async function createFlight(data) {
   }
 }
 
-module.exports = { createFlight };
+async function getAllFlights(query) {
+  // trips = MUM -CHN
+  let customFilters = {};
+  let sortFilter = [];
+  const endingTime = " 23:59:00";
+  // TODO: Move the query fitlers to different function
+  if (query.trips) {
+    [departureAirportId, arrivalAirportId] = query.trips.split("-");
+    customFilters.arrivalAirportId = arrivalAirportId;
+    customFilters.departureAirportId = departureAirportId;
+    // TODO: departureAirportTime should be greater than arrivalAirportTime we already have function for that in helper
+  }
+  if (query.price) {
+    [minPrice, maxPrice] = query.price.split("-");
+    customFilters.price = {
+      [Op.between]: [minPrice, maxPrice === undefined ? 20000 : maxPrice],
+    };
+  }
+  if (query.travellers) {
+    customFilters.totalSeats = { [Op.gte]: query.travellers };
+  }
+  // TODO: Fix this filter, not working proplery
+  if (query.tripDate) {
+    customFilters.departureTime = {
+      [Op.between]: [query.tripDate, query.tripDate + endingTime],
+    };
+  }
+  if (query.sort) {
+    const params = query.sort.split(",");
+    const sortFilters = params.map((param) => param.split("_"));
+    sortFilter = sortFilters;
+  }
+  try {
+    const flights = await flightRepository.getAllFlights(
+      customFilters,
+      sortFilter
+    );
+    return flights;
+  } catch (error) {
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_FETCH_ALL_FLIGHTS,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+module.exports = { createFlight, getAllFlights };

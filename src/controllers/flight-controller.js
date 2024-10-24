@@ -30,6 +30,24 @@ async function createFlight(req, res) {
   }
 }
 
+async function getAllFlights(req, res) {
+  try {
+    console.log("query", req.query);
+    const response = await FlightService.getAllFlights(req.query);
+    console.log("Response", response);
+    SuccessResponse.data = response;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log("Error", error);
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.UNABLE_TO_FETCH_ALL_FLIGHTS;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+
 module.exports = {
   createFlight,
+  getAllFlights,
 };
