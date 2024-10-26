@@ -7,3 +7,6 @@ prettier.xml
 modules.xml
 .swp
 Flight Booking App.iml
+.DS_Store
+.idea/
+.vscode/

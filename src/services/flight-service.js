@@ -81,4 +81,22 @@ async function getAllFlights(query) {
   }
 }
 
-module.exports = { createFlight, getAllFlights };
+async function getFlight(id) {
+  try {
+    const flight = await flightRepository.get(id);
+    return flight;
+  } catch (error) {
+    if (error.statusCode === StatusCodes.NOT_FOUND) {
+      throw new AppError(
+        MESSAGES.ERROR.FLIGHT_NOT_FOUND,
+        StatusCodes.NOT_FOUND
+      );
+    }
+    throw new AppError(
+      MESSAGES.ERROR.UNABLE_TO_FETCH_FLIGHT,
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+module.exports = { createFlight, getAllFlights, getFlight };

@@ -15,6 +15,7 @@ const MESSAGES = {
     DELETE_AIRPORT_SUCCESS: "Airport deleted successfully",
     FLIGHT_CREATED: "Successfully created flight",
     FLIGHTS_FETCHED: "Successfully fetched flights data",
+    FLIGHT_FETCHED: "Successfully fetched flight data",
   },
   ERROR: {
     DEFAULT: "An unexpected error occurred",
@@ -61,6 +62,8 @@ const MESSAGES = {
     PRICE_REQUIRED: "Price is required",
     TOTAL_SEATS_REQUIRED: "Total seats is required",
     INVALID_FLIGHT_TIME: "Departure time must be earlier than arrival time",
+    FLIGHT_NOT_FOUND: "Flight not found",
+    UNABLE_TO_FETCH_FLIGHT: "Cannot fetch data of the flight",
   },
   INFO: {
     REQUEST_RECEIVED: "Request received and being processed",
