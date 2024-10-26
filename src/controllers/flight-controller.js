@@ -62,8 +62,28 @@ async function getFlight(req, res) {
   }
 }
 
+async function updateSeats(req, res) {
+  try {
+    const response = await FlightService.updateSeats({
+      flightId: req.params.id,
+      seats: req.body.seats,
+      dec: req.body.dec,
+    });
+    SuccessResponse.data = response;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log("Error from controller  -------------->>>>>>>>>>>", error);
+    ErrorResponse.error = error.explanation || error.message;
+    ErrorResponse.message = MESSAGES.ERROR.FAILED_TO_UPDATE_SEATS;
+    return res
+      .status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR)
+      .json(ErrorResponse);
+  }
+}
+
 module.exports = {
   createFlight,
   getAllFlights,
   getFlight,
+  updateSeats,
 };

@@ -70,6 +70,19 @@ function validateCreateRequest(req, res, next) {
   }
   next();
 }
+
+function validateUpdateSeatsRequest(req, res, next) {
+  if (!req.body.seats) {
+    ErrorResponse.message = MESSAGES.ERROR.INVALID_INPUT;
+    ErrorResponse.error = new AppError(
+      [MESSAGES.ERROR.SEATS_REQUIRED],
+      StatusCodes.BAD_REQUEST
+    );
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+  next();
+}
 module.exports = {
   validateCreateRequest,
+  validateUpdateSeatsRequest,
 };
