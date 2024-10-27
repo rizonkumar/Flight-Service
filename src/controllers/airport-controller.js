@@ -5,7 +5,6 @@ const { AirportService } = require("../services");
 const { SuccessResponse, ErrorResponse } = require("../utils/common");
 
 async function createAirport(req, res) {
-  console.log("1");
   try {
     const airport = await AirportService.createAirport({
       name: req.body.name,
@@ -13,7 +12,6 @@ async function createAirport(req, res) {
       address: req.body.address,
       cityId: req.body.cityId,
     });
-    console.log("Airport body", airport);
     SuccessResponse.data = airport;
     SuccessResponse.message = MESSAGES.SUCCESS.AIRPORT_CREATED;
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
