@@ -1,4 +1,3 @@
-Sure! Here’s the updated README with the command included in the "Models and Migrations" section:
 
 # Flight Booking App
 
