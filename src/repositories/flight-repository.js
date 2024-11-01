@@ -89,7 +89,6 @@ class FlightRepository extends CrudRepository {
 
       // Fetch updated flight data
       const updatedFlight = await Flight.findByPk(flightId);
-      console.log("Upated Flught ---------->>>>>>", updatedFlight);
       return updatedFlight;
     } catch (error) {
       await transaction.rollback();
