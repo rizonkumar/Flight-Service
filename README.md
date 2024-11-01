@@ -1,6 +1,5 @@
 Sure! Here’s the updated README with the command included in the "Models and Migrations" section:
 
-````markdown
 # Flight Booking App
 
 This is a Flight Booking Application built with Node.js, Express, and Sequelize ORM.
@@ -24,7 +23,6 @@ This is a Flight Booking Application built with Node.js, Express, and Sequelize 
    ```bash
    npm install
    ```
-````
 
 3. Set up your environment variables in a `.env` file (see `.env.example` for required variables).
 4. Start the server:
